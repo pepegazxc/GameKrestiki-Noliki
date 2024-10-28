@@ -1,0 +1,108 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        //Создаем переменные которые будут обозначать кол-во клеточек поля
+        int pole3x3 = 3;
+        int pole6x6 = 6;
+        int pole9x9 = 9;
+        int pole12x12 = 12;
+
+        //1) Нужно дать игроку два выбора
+        //   1- Выбор с кем он будет играть (второй игрок или с ПК через метод Random)
+        //   2- Выбор размера поля (3x3, 6x6, 9x9, 12x12)
+
+        System.out.print("Введите 1 если вы ходите играть со второмы игроком, 2 если хотетите поиграть с компьютером:   ");
+        int playwith = sc.nextInt();
+
+        if (playwith == 1) {
+            System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9б 4 - 12х12):   ");
+            int areasize = sc.nextInt();
+
+            //В зависимости от выбора цифры будет сгенерированы поля с соответственными размерами в виде двумерного массива
+            if (areasize == 1) {
+                int[][] arr = new int[3][3];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.print(arr[i][j]+ " ");
+                    }
+                }
+
+            }else if (areasize == 2) {
+                int[][] arr = new int[6][6];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else if (areasize == 3) {
+                int[][] arr = new int[9][9];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else if (areasize == 4) {
+                int[][] arr = new int[12][12];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else {
+                System.out.println("Вы ввели неправильную цифру");
+            }
+
+        }else if ( playwith == 2) {
+            System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9 4 - 12х12):   ");
+            int areasize = sc.nextInt();
+
+            //В зависимости от выбора цифры будет сгенерированы поля с соответственными размерами в виде двумерного массива
+            if (areasize == 1) {
+                int[][] arr = new int[3][3];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else if (areasize == 2) {
+                int[][] arr = new int[6][6];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else if (areasize == 3) {
+                int[][] arr = new int[9][9];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else if (areasize == 4) {
+                int[][] arr = new int[12][12];
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = 0; j < arr.length; j++) {
+                        System.out.println(arr[i][j]);
+                    }
+                }
+
+            }else {
+                System.out.println("Вы ввели неправильную цифру");
+            }
+        }else{
+            System.out.println("Вы ввели неправильную цифру.");
+        }
+
+    }
+}
