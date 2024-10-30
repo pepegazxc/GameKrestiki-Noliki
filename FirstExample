@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -12,97 +13,84 @@ public class Main {
         int pole9x9 = 9;
         int pole12x12 = 12;
 
-        //1) Нужно дать игроку два выбора
-        //   1- Выбор с кем он будет играть (второй игрок или с ПК через метод Random)
-        //   2- Выбор размера поля (3x3, 6x6, 9x9, 12x12)
+        // Выбор размера поля (3x3, 6x6, 9x9, 12x12)
 
-        System.out.print("Введите 1 если вы ходите играть со второмы игроком, 2 если хотетите поиграть с компьютером:   ");
-        int playwith = sc.nextInt();
-
-        if (playwith == 1) {
-            System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9б 4 - 12х12):   ");
-            int areasize = sc.nextInt();
-
-            //В зависимости от выбора цифры будет сгенерированы поля с соответственными размерами в виде двумерного массива
-            if (areasize == 1) {
-                int[][] arr = new int[3][3];
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = 0; j < arr.length; j++) {
-                        System.out.print(arr[i][j]+ " ");
+        System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9 4 - 11х11):   ");
+        int areasize = sc.nextInt();
+        //В зависимости от выбора цифры будет сгенерированы поля с соответственными размерами в виде двумерного массива
+        switch (areasize) {
+            case 1:
+            char[][] arr = new char[3][3];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    System.out.print("|");
+                    System.out.print(arr[i][j] == ' ' ? " " : arr[i][j]);
+                    if (j < arr[i].length - 1) {
                     }
                 }
-
-            }else if (areasize == 2) {
-                int[][] arr = new int[6][6];
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
-                    }
+                System.out.print("|");
+                System.out.println();
+                if (i < arr.length - 1) {
+                    System.out.println("-------");
                 }
-
-            }else if (areasize == 3) {
-                int[][] arr = new int[9][9];
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
-                    }
-                }
-
-            }else if (areasize == 4) {
-                int[][] arr = new int[12][12];
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
-                    }
-                }
-
-            }else {
-                System.out.println("Вы ввели неправильную цифру");
             }
+            break;
 
-        }else if ( playwith == 2) {
-            System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9 4 - 12х12):   ");
-            int areasize = sc.nextInt();
-
-            //В зависимости от выбора цифры будет сгенерированы поля с соответственными размерами в виде двумерного массива
-            if (areasize == 1) {
-                int[][] arr = new int[3][3];
+            case 2:
+            arr = new char[6][6];
                 for (int i = 0; i < arr.length; i++) {
                     for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
+                        System.out.print("|");
+                        System.out.print(arr[i][j] == ' ' ? " " : arr[i][j]);
+                        if (j < arr[i].length - 1) {
+                        }
+                    }
+                    System.out.print("|");
+                    System.out.println();
+                    if (i < arr.length - 1) {
+                        System.out.println("-------------");
                     }
                 }
+                break;
 
-            }else if (areasize == 2) {
-                int[][] arr = new int[6][6];
+            case 3:
+            arr = new char[9][9];
                 for (int i = 0; i < arr.length; i++) {
                     for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
+                        System.out.print("|");
+                        System.out.print(arr[i][j] == ' ' ? " " : arr[i][j]);
+                        if (j < arr[i].length - 1) {
+                        }
+                    }
+                    System.out.print("|");
+                    System.out.println();
+                    if (i < arr.length - 1) {
+                        System.out.println("-------------------");
                     }
                 }
+                break;
 
-            }else if (areasize == 3) {
-                int[][] arr = new int[9][9];
+            case 4:
+             arr = new char[11][11];
                 for (int i = 0; i < arr.length; i++) {
                     for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
+                        System.out.print("|");
+                        System.out.print(arr[i][j] == ' ' ? " " : arr[i][j]);
+                        if (j < arr[i].length - 1) {
+                        }
+                    }
+                    System.out.print("|");
+                    System.out.println();
+                    if (i < arr.length - 1) {
+                        System.out.println("-----------------------");
                     }
                 }
+                break;
 
-            }else if (areasize == 4) {
-                int[][] arr = new int[12][12];
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = 0; j < arr.length; j++) {
-                        System.out.println(arr[i][j]);
-                    }
-                }
-
-            }else {
-                System.out.println("Вы ввели неправильную цифру");
+            default:
+                System.out.println("Вы ввели неверную цифру");
             }
-        }else{
-            System.out.println("Вы ввели неправильную цифру.");
-        }
 
     }
+
 }
