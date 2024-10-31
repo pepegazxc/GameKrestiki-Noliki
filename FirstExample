@@ -6,14 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-
-        //Создаем переменные которые будут обозначать кол-во клеточек поля
-        int pole3x3 = 3;
-        int pole6x6 = 6;
-        int pole9x9 = 9;
-        int pole12x12 = 12;
-
-        // Выбор размера поля (3x3, 6x6, 9x9, 12x12)
+        
+        // Выбор размера поля (3x3, 6x6, 9x9, 11x11)
 
         System.out.print("Выберите размер поля (цифра 1 - 3х3, 2 - 6х6, 3 - 9х9 4 - 11х11):   ");
         int areasize = sc.nextInt();
