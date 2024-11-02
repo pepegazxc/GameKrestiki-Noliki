@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int pole3x3 = 3;
+        int polex6x6 = 6;
+        int pole9x9 = 9;
+        int pole11x11 = 11;
+
+        char PlayerInMoment = 'X';
+        boolean isGameRunning = true;
+
+        System.out.println("Выберите размер поля на котором вы хотите играть(1 - поле 3 на 3, 2 - поле 6 на 6, 3 - поле 9 на 9, 4 - поле 11 на 11):    ");
+        int ChooseArea = scanner.nextInt();
+
+        while (isGameRunning) {
+            char[][] area = null;
+            int size = 0;
+            switch (ChooseArea) {
+                case 1:
+                    size = 3;
+                    area = new char[pole3x3][pole3x3];
+                    break;
+                case 2:
+                    size = 6;
+                    area = new char[polex6x6][polex6x6];
+                    break;
+                case 3:
+                    size = 9;
+                    area = new char[pole9x9][pole9x9];
+                    break;
+                case 4:
+                    size = 11;
+                    area = new char[pole11x11][pole11x11];
+                    break;
+                default:
+                    System.out.println("Вы ввели не ту цифру");
+            }
+
+            printArea(area);
+            System.out.println("Начинает игрок играющий за крестики.");
+            System.out.print("Введите строку и столбец в который хотите поставить свой символ:  ");
+
+            int row = scanner.nextInt();
+            int col = scanner.nextInt();
+
+            if (row >= 0 || row < size || col >= 0 || col < size || area[row][col] == ' ' ) {
+                area[row][col] = PlayerInMoment;
+                if(checkWin(area, PlayerInMoment)) {
+                    printArea(area);
+                    System.out.println("Игрок играющий за "+ PlayerInMoment+ "Победил");
+                    isGameRunning = false;
+                }else if (checkDraw(area)){
+                    printArea(area);
+                    System.out.println("Ничья");
+                    isGameRunning = false;
+                }else {
+                    PlayerInMoment = (PlayerInMoment == 'X') ? 'O' : 'X';
+                }
+            }else {
+                System.out.println("Вы ввели не в том месте");
+            }
+        }
+    }
+    public static void printArea(char[][] area){
+        for (int i = 0; i < area.length; i++) {
+            for (int j = 0; j < area.length; j++) {
+                System.out.print("|");
+                System.out.print(area[i][j] == ' ' ? " " : area[i][j]);
+                if (j < area[i].length - 1) {
+                }
+            }
+            System.out.print("|");
+            System.out.println();
+            if (i < area.length - 1) {
+            }
+        }
+    }
+
+    public static boolean checkWin(char[][] area, char player){
+        for (int i = 0; i < area.length; i++) {
+        boolean rowWin = true;
+        boolean colWin = true;
+        boolean diag1Win = true;
+        boolean diag2Win = true;
+        for (int j = 0; j < area[i].length; j++) {
+            if (area[i][j] != player) {
+            rowWin = false;
+            }
+            if (area[i][j] != player) {
+                colWin = false;
+            }
+            if (area[i][j] != player) {
+                diag1Win = false;
+            }
+            if (area[j][area.length - j - 1] != player) {
+                diag2Win = false;
+            }
+        }
+        if (rowWin || colWin || diag1Win || diag2Win) {
+            return true;
+        }
+        }
+        return false;
+    }
+    public static boolean checkDraw(char[][] area){
+        for (int i = 0; i < area.length; i++) {
+            for (int j = 0; j < area[i].length; j++) {
+                if (area[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
